@@ -1,0 +1,57 @@
+<aside aria-label="Sidebar" #sidenavMain class="aside">
+  <div class="px-3 h-20 flex flex-row items-center justify-between w-full">
+    <img
+      #logoImg
+      class="h-12 mr-8"
+      src="/assets/img/cartanlogowide.png"
+      alt="cartan-logo"
+    />
+    <button type="button" mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>{{ isOpen ? "arrow_back_ios" : "menu" }}</mat-icon>
+    </button>
+  </div>
+
+  <mat-divider style="margin: 1em 0"></mat-divider>
+
+  <mat-nav-list>
+    <a
+      mat-list-item
+      routerLink="/dashboard"
+      routerLinkActive="active-link"
+      matTooltip="Dashboard"
+      [matTooltipDisabled]="isOpen"
+    >
+      <mat-icon mat-list-icon>dashboard</mat-icon>
+      <h4 mat-line>Dashboard</h4>
+    </a>
+    <a
+      mat-list-item
+      (click)="showSubAdmin = !showSubAdmin"
+      matTooltip="Administration"
+      [matTooltipDisabled]="isOpen"
+    >
+      <mat-icon mat-list-icon>admin_panel_settings</mat-icon>
+      <h4 mat-line>Administration</h4>
+      <mat-icon class="menu-button" [ngClass]="{ rotated: showSubAdmin }">
+        expand_more
+      </mat-icon>
+    </a>
+
+    <div
+      [ngClass]="{ expanded: showSubAdmin }"
+      [hidden]="!showSubAdmin"
+      class="submenu"
+    >
+      <a
+        mat-list-item
+        routerLinkActive="active-link"
+        routerLink="/users"
+        matTooltip="Users"
+        [matTooltipDisabled]="isOpen"
+      >
+        <mat-icon mat-list-icon>people</mat-icon>
+        <h4 mat-line>Users</h4>
+      </a>
+    </div>
+  </mat-nav-list>
+</aside>

@@ -1,0 +1,50 @@
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #drawer
+    [(opened)]="opened"
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="'navigation'"
+    [mode]="'side'"
+  >
+    <layout-side-nav></layout-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content class="main-content">
+    <header>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <button
+            class="toggle"
+            type="button"
+            mat-icon-button
+            (click)="toggleDrawer()"
+          >
+            <mat-icon>menu_open</mat-icon>
+          </button>
+          <div class="right">
+            <button
+              class="toggle"
+              type="button"
+              mat-icon-button
+              (click)="toggleDrawer()"
+            >
+              <mat-icon>contact_support</mat-icon>
+            </button>
+            <button
+              class="toggle"
+              type="button"
+              mat-icon-button
+              (click)="toggleDrawer()"
+            >
+              <mat-icon>power_settings_new</mat-icon>
+            </button>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </header>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

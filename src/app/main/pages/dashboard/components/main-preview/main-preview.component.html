@@ -1,0 +1,31 @@
+<mat-tab-group #tabGroup (selectedTabChange)="handleTabChange($event)">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span matTooltip="Example of controls in use"> Controls </span>
+    </ng-template>
+    <app-preview-controls></app-preview-controls>
+  </mat-tab>
+  <mat-tab aria-label="Containers">
+    <ng-template mat-tab-label>
+      <span matTooltip="General containers, like tables/dialogs"
+        >Containers</span
+      >
+    </ng-template>
+    <app-preview-containers *ngIf="activeTab === 'Containers'">
+    </app-preview-containers>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span matTooltip="Preview of typography"> Typography </span>
+    </ng-template>
+    <app-preview-typography></app-preview-typography>
+  </mat-tab>
+  <mat-tab aria-label="General Layout">
+    <ng-template mat-tab-label>
+      <span matTooltip="General Layout">General Layout</span>
+    </ng-template>
+    <app-preview-general
+      *ngIf="activeTab === 'General Layout'"
+    ></app-preview-general>
+  </mat-tab>
+</mat-tab-group>

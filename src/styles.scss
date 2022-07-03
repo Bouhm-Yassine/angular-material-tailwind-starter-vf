@@ -1,0 +1,26 @@
+@import "./styles/theme.scss";
+@import "./styles/typography.scss";
+@import "./styles/base.scss";
+@import "./styles/flex.scss";
+@import "./styles/buttons.scss";
+@import "./styles/scroll-bar.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mat-list-icon {
+  color: map-get($mat-primary, 500);
+}
+
+.mat-focused .mat-form-field-label {
+  color: map-get($mat-primary, A700) !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: map-get($mat-primary, A700) !important;
+}
+
+.mat-progress-bar {
+  border-radius: 2px;
+}

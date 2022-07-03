@@ -1,0 +1,84 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+// Theme Config
+$mat-primary: (
+  50: #eff1fb,
+  100: #cdb4fe,
+  200: #bc9bfd,
+  300: #ab82fd,
+  400: #9a69fc,
+  500: #8950fc,
+  600: #7837fc,
+  700: #671efb,
+  800: #5605fb,
+  900: #4e04e2,
+  A100: #eee6ff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #2d2153,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$theme-primary: mat-palette($mat-primary, 500, 200, 900);
+
+$mat-accent: (
+  50: #fdefed,
+  100: #fad7d1,
+  200: #f6bcb3,
+  300: #f2a194,
+  400: #f08d7d,
+  500: #ed7966,
+  600: #eb715e,
+  700: #e86653,
+  800: #e55c49,
+  900: #e04938,
+  A100: #ffffff,
+  A200: #fff7f6,
+  A400: #ffc9c3,
+  A700: #ffb2aa,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$theme-accent: mat-palette($mat-accent, 500, 200, 900);
+
+$theme-warn: mat-palette($mat-red);
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+// Theme Init
+@include angular-material-theme($theme);
+
+// Specific component overrides, pieces that are not in line with the general theming
+@include all-component-themes($theme);

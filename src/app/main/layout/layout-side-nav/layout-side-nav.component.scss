@@ -1,0 +1,47 @@
+@import "/src/styles/theme.scss";
+
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-left: 30px;
+}
+.submenu.expanded {
+  transform: scaleY(1);
+}
+
+.mat-list-item:hover::before {
+  opacity: 0.4;
+  transform: scaleY(0.5) scaleX(1);
+}
+
+.mat-list-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 5px;
+  background-color: map-get($mat-primary, 400);
+  opacity: 0;
+  transform: scaleY(0);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.mat-list-item.active-link::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.aside {
+  background-color: map-get($mat-primary, 50);
+  height: 100%;
+}
