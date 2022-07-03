@@ -43,6 +43,32 @@
       </mat-toolbar>
     </header>
 
+    <header>
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <div class="items-center justify-between pl-4">
+            <nav
+              class="bg-grey-light rounded-md w-full"
+              aria-label="breadcrumb"
+            >
+              <ol class="list-reset flex">
+                <li *ngFor="let item of pageList; let i = index">
+                  <a class="text-gray-500 hover:text-gray-800">
+                    <span>{{ item | titlecase }}</span>
+                  </a>
+                  <span
+                    *ngIf="i !== pageList.length - 1"
+                    class="text-gray-500 mx-2"
+                    >/</span
+                  >
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </header>
+
     <div class="content">
       <router-outlet></router-outlet>
     </div>

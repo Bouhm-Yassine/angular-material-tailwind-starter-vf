@@ -18,6 +18,7 @@
       mat-list-item
       routerLink="/dashboard"
       routerLinkActive="active-link"
+      matTooltipPosition="right"
       matTooltip="Dashboard"
       [matTooltipDisabled]="isOpen"
     >
@@ -27,6 +28,7 @@
     <a
       mat-list-item
       (click)="showSubAdmin = !showSubAdmin"
+      matTooltipPosition="right"
       matTooltip="Administration"
       [matTooltipDisabled]="isOpen"
     >
@@ -38,6 +40,7 @@
     </a>
 
     <div
+      #subMenuAdmin
       [ngClass]="{ expanded: showSubAdmin }"
       [hidden]="!showSubAdmin"
       class="submenu"
@@ -45,13 +48,47 @@
       <a
         mat-list-item
         routerLinkActive="active-link"
-        routerLink="/users"
+        routerLink="/administration/users"
+        matTooltipPosition="right"
         matTooltip="Users"
         [matTooltipDisabled]="isOpen"
       >
         <mat-icon mat-list-icon>people</mat-icon>
         <h4 mat-line>Users</h4>
       </a>
+      <a
+        mat-list-item
+        routerLinkActive="active-link"
+        routerLink="/administration/settings"
+        matTooltipPosition="right"
+        matTooltip="Settings"
+        [matTooltipDisabled]="isOpen"
+      >
+        <mat-icon mat-list-icon>settings</mat-icon>
+        <h4 mat-line>Settings</h4>
+      </a>
     </div>
+    <a
+      mat-list-item
+      routerLink="/clients"
+      routerLinkActive="active-link"
+      matTooltipPosition="right"
+      matTooltip="Clients"
+      [matTooltipDisabled]="isOpen"
+    >
+      <mat-icon mat-list-icon>store</mat-icon>
+      <h4 mat-line>Clients</h4>
+    </a>
+    <a
+      mat-list-item
+      routerLink="/workflow"
+      routerLinkActive="active-link"
+      matTooltipPosition="right"
+      matTooltip="Workflow"
+      [matTooltipDisabled]="isOpen"
+    >
+      <mat-icon mat-list-icon>hub</mat-icon>
+      <h4 mat-line>Workflow</h4>
+    </a>
   </mat-nav-list>
 </aside>

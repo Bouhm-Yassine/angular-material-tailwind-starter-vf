@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'layout-container',
@@ -11,8 +12,14 @@ export class LayoutContainerComponent implements OnInit {
   opened: boolean = true;
   isDarkMode!: boolean;
   toggleControl = new FormControl(false);
-
-  constructor() {
+  pageList: string[] = [];
+  constructor(private router: Router) {
+    router.events.forEach(event => {
+      if (event instanceof NavigationEnd) {
+        this.pageList = []
+        this.pageList = this.pageList.concat(event.url.substring(1).split('/').slice().filter((item) => item !== ''))
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -22,9 +29,4 @@ export class LayoutContainerComponent implements OnInit {
     this.opened = !this.opened;
   }
 
-  darkMode(darkMode: boolean) {
-    this.isDarkMode = darkMode
-    const darkClassName = 'dark-mode';
-    this.className = darkMode ? darkClassName : '';
-  }
 }
